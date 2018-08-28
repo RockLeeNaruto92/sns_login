@@ -7,11 +7,9 @@ CLIENT_SECRET
 
 - Run bằng ngrok
 - Cài đặt bằng callback trên https://developers.line.me/console/channel/1602244930/app/ bằng tài khoản trên task 9941
-**Nhớ sử dụng https**
+(Nhớ sử dụng https)
 
-```
 https://your_ngrok.ngrok.io/home/new
-```
 
 - Chạy `rails s`
-- Access vào https://your_ngrok.ngrok.io/home/index
+- Access vào **https://your_ngrok.ngrok.io/home/index**
