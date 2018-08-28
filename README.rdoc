@@ -1,28 +1,17 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- HomeController, sửa
 
-Things you may want to cover:
+CLIENT_ID
+CLIENT_SECRET
 
-* Ruby version
+- Run bằng ngrok
+- Cài đặt bằng callback trên https://developers.line.me/console/channel/1602244930/app/ bằng tài khoản trên task 9941
+**Nhớ sử dụng https**
 
-* System dependencies
+```
+https://your_ngrok.ngrok.io/home/new
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+- Chạy `rails s`
+- Access vào https://your_ngrok.ngrok.io/home/index
