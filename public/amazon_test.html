@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>No title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://static-fe.payments-amazon.com/OffAmazonPayments/jp/sandbox/lpa/js/Widgets.js"></script>
+  </head>
+  <body>
+    <p>
+      <h1>
+        AmazonLogin with scope "profile"
+      </h1>
+      <!-- <div id="AmazonLoginProfile"></div> -->
+    </p>
+    <br /><br /><br /><br /><br /><br /><br />
+
+    <p>
+      <h1>AmazonLogin with scope: profile payments:widget payments:shipping_address</h1>
+      <div id="AmazonLoginWithOther"></div>
+    </p>
+
+    <script type="text/javascript">
+      window.nextAction = function(response) {
+        const retrieveProfileCallback = function(response) {
+          alert("retrieveProfileCallback");
+          amazon.Login.logout();
+          clearPage();
+          displayPage("two")
+        }
+
+        if (!response.error) {
+          amazon.Login.retrieveProfile(retrieveProfileCallback);
+        }
+      }
+
+      // window.onProfileAmazonAuthorization = function() {
+      //   var loginOptions = {
+      //     scope: 'profile payments:widget payments:shipping_address',
+      //     popup: true,
+      //     sandbox: true
+      //   };
+      //
+      //   amazon.Login.authorize(loginOptions, window.nextAction);
+      // }
+
+      window.onOtherAmazonAuthorizationCallback = function() {
+        var loginOptions = {
+          scope: 'profile payments:widget payments:shipping_address',
+          popup: true,
+          sandbox: true
+        };
+
+        console.log("onOtherAmazonAuthorization");
+
+        amazon.Login.authorize(loginOptions, window.nextAction);
+      }
+
+      var amazonClientId = "amzn1.application-oa2-client.6a339767de8e43488a78fd93592e3f27";
+      var amazonMerchantId = "A3QCQLYZKBHFRS";
+      amazon.Login.setClientId(amazonClientId);
+
+      // OffAmazonPayments.Button('AmazonLoginProfile', amazonMerchantId, {
+      //   type: 'LwA',
+      //   color: 'Gold',
+      //   size: 'large',
+      //   scope: 'profile',
+      //   authorization: window.onProfileAmazonAuthorization
+      // });
+
+      OffAmazonPayments.Button('AmazonLoginWithOther', amazonMerchantId, {
+        type: 'LwA',
+        color: 'Gold',
+        size: 'large',
+        scope: 'profile payments:widget payments:shipping_address',
+        authorization: window.onOtherAmazonAuthorizationCallback
+      });
+    </script>
+  </body>
+</html>

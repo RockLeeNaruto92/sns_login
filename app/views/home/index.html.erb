@@ -1,0 +1,17 @@
+<ul>
+<%if user_signed_in? %>
+  <li><%=current_user.email%></li>
+
+<li><%=current_user.name%></li>
+<li><%=current_user.nickname%></li>
+<li><%=current_user.image%></li>
+<li><%=current_user.location%></li>
+
+<%end%>
+</ul>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<a href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1602244930&redirect_uri=https%3A%2F%2F2b7e08db.ngrok.io%2Fhome%2Fnew&scope=openid%20profile%20email&state=12345abcde">Login with line</a>
+
+
+<br/><br/><br/>

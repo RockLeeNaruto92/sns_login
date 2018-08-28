@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>No title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body style="background-color:#f3f3f4">
+    <div id="ukokkei-landing-page-container"></div>
+
+    <h1>NormalProduct2</h1>
+    <form action="http://localhost:3000/api/cart_item.html" class="form-inline" method="post"><input type="hidden" name="id" id="id" value="253"><input type="hidden" name="cart_item_type" id="cart_item_type" value="set_product_normal"><div class="form-group">数量<select name="quantity" id="quantity" class="form-control"><option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option></select></div><button name="button" type="submit" class="btn btn-primary">購入</button></form>
+
+→ OK
+
+
+
+    <h1>VarietySetProduct2</h1>
+    <form action="http://localhost:3000/api/cart_item.html" class="form-inline" method="post"><input type="hidden" name="id" id="id" value="254"><input type="hidden" name="cart_item_type" id="cart_item_type" value="set_product_variety"><hr><input type="hidden" name="groups[0][id]" id="groups_0_id" value="27"><div class="form-group"><label><input type="checkbox" name="groups[0][variants][0][id]" id="groups_0_variants_0_id" value="343">variant_on_off_enabled Color: Black</label></div><div class="form-group"><label><input type="checkbox" name="groups[0][variants][1][id]" id="groups_0_variants_1_id" value="342">variant_on_off_enabled Color: Yellow</label></div><div class="form-group"><label><input type="checkbox" name="groups[0][variants][2][id]" id="groups_0_variants_2_id" value="297">lp_produc カーラ: 赤, サイズ: L</label></div><div class="form-group"><label><input type="checkbox" name="groups[0][variants][3][id]" id="groups_0_variants_3_id" value="293">lp_produc カーラ: 青, サイズ: X</label></div><p>以下より商品を3つ選んでください。</p><hr><div class="form-group">個数<select name="quantity" id="quantity" class="form-control"><option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option></select></div><hr><button name="button" type="submit" class="btn btn-primary">購入</button></form>
+
+<h1>CombinationSetProduct2</h1>
+<form action="http://localhost:3000/api/cart_item.html" class="form-inline html-tag-product-combination" method="post"><strong>Group1より商品を2つ、Group2より商品を2つ選んでください。</strong><input type="hidden" name="id" id="id" value="255"><input type="hidden" name="cart_item_type" id="cart_item_type" value="set_product_combination"><fieldset><legend>Group1</legend><input type="hidden" name="groups[29][id]" id="groups_29_id" value="29"><div class="form-group"><label><input type="checkbox" name="groups[29][variants][297][id]" id="groups_29_variants_297_id" value="297">lp_produc カーラ: 赤, サイズ: L</label><input type="hidden" name="groups[29][variants][297][quantity]" id="groups_29_variants_297_quantity" value="1"></div><div class="form-group"><label><input type="checkbox" name="groups[29][variants][342][id]" id="groups_29_variants_342_id" value="342">variant_on_off_enabled Color: Yellow</label><input type="hidden" name="groups[29][variants][342][quantity]" id="groups_29_variants_342_quantity" value="1"></div><div class="form-group"><label><input type="checkbox" name="groups[29][variants][343][id]" id="groups_29_variants_343_id" value="343">variant_on_off_enabled Color: Black</label><input type="hidden" name="groups[29][variants][343][quantity]" id="groups_29_variants_343_quantity" value="1"></div></fieldset><fieldset><legend>Group2</legend><input type="hidden" name="groups[30][id]" id="groups_30_id" value="30"><div class="form-group"><label><input type="checkbox" name="groups[30][variants][342][id]" id="groups_30_variants_342_id" value="342">variant_on_off_enabled Color: Yellow</label><input type="hidden" name="groups[30][variants][342][quantity]" id="groups_30_variants_342_quantity" value="1"></div><div class="form-group"><label><input type="checkbox" name="groups[30][variants][343][id]" id="groups_30_variants_343_id" value="343">variant_on_off_enabled Color: Black</label><input type="hidden" name="groups[30][variants][343][quantity]" id="groups_30_variants_343_quantity" value="1"></div><div class="form-group"><label><input type="checkbox" name="groups[30][variants][299][id]" id="groups_30_variants_299_id" value="299">lp_produc カーラ: 黄色, サイズ: X</label><input type="hidden" name="groups[30][variants][299][quantity]" id="groups_30_variants_299_quantity" value="1"></div></fieldset><div class="form-group">数量<select name="quantity" id="quantity" class="form-control"><option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option></select></div><button name="button" type="submit" class="btn btn-primary">購入</button></form>
+
+<h1>Product</h1>
+<form action="http://localhost:3000/api/cart_item.html" class="form-inline" method="post"><input type="hidden" name="id" id="id" value="241"><input type="hidden" name="cart_item_type" id="cart_item_type" value="single_product"><div class="form-group">Color<select name="option_values[0][id]" id="option_values_0_id" class="form-control"><option value="197">Black</option>
+<option value="198">Yellow</option></select></div><div class="form-group">個数<select name="quantity" id="quantity" class="form-control"><option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option></select></div><button name="button" type="submit" class="btn btn-primary">購入</button></form>
+  </body>
+</html>
+
+const group = this.product.groups[0];
+let groupInfo = {'id': group.id, 'variants': []};
+let variantIdsCount = {};
+group.set_variants.forEach((variant) => {
+  if (variantIdsCount[variant.id]) {
+    variantIdsCount[variant.id].quantity += 1;
+  } else {
+    variantIdsCount[variant.id] = {};
+    variantIdsCount[variant.id].quantity = 1;
+    variantIdsCount[variant.id].nameDetail = variant.name_detail;
+  }
+});
+const variants = Object.keys(variantIdsCount).map((variantId) => {
+  groupInfo['variants'].push({
+    'id': variantId,
+    'quantity': variantIdsCount[variantId].quantity
+  });
+  const quantity =
+    Utils.renderItemQuantity(variantIdsCount[variantId].quantity);
+
+
+
+
+AmazonInfo.includes(:user).where(cooperation_id: "xxx").find{|ai| ai.user.online?}

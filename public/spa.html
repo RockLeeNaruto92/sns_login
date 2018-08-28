@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <title>Single Page App</title>
+<style type="text/css">
+.page { display: none; }
+</style>
+<script src="https://static-fe.payments-amazon.com/OffAmazonPayments/jp/sandbox/lpa/js/Widgets.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+
+  $(function(){
+    // 初期表示
+    if( location.hash === ''){
+        displayPage("#one");
+    }else{
+        displayPage(location.hash);
+    }
+    // 完了フラグ(falseになったら遷移は不可にする)　
+    // 途中でURLを変更しても、falseになっていたら遷移不可
+    var completeFlg = true;
+
+    // ボタン押下のページ遷移処理
+    // ハッシュのみ変更する
+    $('.btn').click(function(e){
+        e.preventDefault();
+        var hash = "#"+$(this).attr('data-hash');
+        location.hash = hash;
+    });
+
+    // ハッシュが変更されたら、そのハッシュに基づいて表示する
+    $(window).bind('hashchange', function(e) {
+        if(completeFlg === true){
+            clearPage();
+            displayPage(location.hash);
+        }else{
+            location.hash = "#three";
+            return false;
+        }
+        if(location.hash === "#three"){
+            completeFlg = false;
+        }
+    });
+
+    // ページ初期化処理
+    function clearPage(){
+        $(".page").css("display", "none");
+    }
+    // ページ表示処理
+    function displayPage(hash){
+      console.log("displayPage");
+      console.log(hash);
+        $(hash).css("display", "block");
+        // $(hash).fadeIn(2000, "linear"); // アニメーションをつけることも出来る
+    }
+});
+
+var amazonClientId = "amzn1.application-oa2-client.6a339767de8e43488a78fd93592e3f27";
+var amazonMerchantId = "A3QCQLYZKBHFRS";
+amazon.Login.setClientId(amazonClientId);
+
+console.log("SetAmazonClientID");
+
+  window.nextAction1 = function(response) {
+    const retrieveProfileCallback = function(response) {
+      alert("retrieveProfileCallback");
+      amazon.Login.logout();
+      location.hash = "#two";
+    }
+
+    if (!response.error) {
+      amazon.Login.retrieveProfile(retrieveProfileCallback);
+    }
+  }
+
+  window.nextAction2 = function(response) {
+    const retrieveProfileCallback = function(response) {
+      alert("retrieveProfileCallback");
+      amazon.Login.logout();
+      amazon.Login.logout();
+      location.hash = "#one";
+    }
+
+    if (!response.error) {
+      amazon.Login.retrieveProfile(retrieveProfileCallback);
+    }
+  }
+
+  window.onAmazonButton1 = function() {
+    var loginOptions = {
+      scope: 'profile payments:widget payments:shipping_address',
+      popup: true,
+      sandbox: true
+    };
+
+    amazon.Login.authorize(loginOptions, window.nextAction1);
+  }
+
+  window.onAmazonButton2 = function() {
+    var loginOptions = {
+      scope: 'profile payments:widget payments:shipping_address',
+      popup: true,
+      sandbox: true
+    };
+
+    amazon.Login.authorize(loginOptions, window.nextAction2);
+  }
+</script>
+</head>
+<body>
+    <div id="one" class="page">
+      <h1>
+        AmazonLogin 1
+      </h1>
+      <div id="AmazonLogin1"></div>
+    </div>
+
+    <div id="two" class="page">
+      <h1>
+        AmazonLogin 2
+      </h1>
+      <div id="AmazonLogin2"></div>
+    </div>
+
+  <script>
+  OffAmazonPayments.Button('AmazonLogin1', amazonMerchantId, {
+    type: 'LwA',
+    color: 'Gold',
+    size: 'large',
+    scope: 'profile payments:widget payments:shipping_address',
+
+    authorization: window.onAmazonButton1
+  });
+
+  OffAmazonPayments.Button('AmazonLogin2', amazonMerchantId, {
+    type: 'LwA',
+    color: 'Gold',
+    size: 'large',
+    scope: 'profile payments:widget payments:shipping_address',
+    authorization: window.onAmazonButton2
+  });
+  </script>
+</body>
+</html>

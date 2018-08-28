@@ -1,0 +1,58 @@
+<!--?xml version="1.0" encoding="utf-8"?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <!--   LP 　↓↓↓ここから↓↓↓　下記、「stylesheet、javascript」をhead内に設定してください。   -->
+    <link rel="stylesheet" href="https://sasami.tamago-cart.com/plus/frame/stylesheets/base.css"/>
+    <link rel="stylesheet" href="https://sasami.tamago-cart.com/plus/frame/stylesheets/common.css"/>
+    <link rel="stylesheet" href="https://sasami.tamago-cart.com/plus/frame/stylesheets/local.css"/>
+    <script src="https://sasami.tamago-cart.com/plus/frame/javascripts/jquery-1.7.2.min.js"></script>
+    <script src="https://sasami.tamago-cart.com/plus/frame/javascripts/jquery.cookie.js"></script>
+    <script src="https://sasami.tamago-cart.com/plus/frame/javascripts/jquery.xdomainajax.js"></script>
+    <script src="https://sasami.tamago-cart.com/plus/frame/javascripts/common.js"></script>
+    <script src="https://sasami.tamago-cart.com/plus/frame/javascripts/local.js"></script>
+
+    <!--   LP  ↑↑↑ここまで↑↑↑ -->
+  </head>
+  <body>
+    <h1>landing_page<br></h1>
+    <h1>landing_page<br></h1>
+    <h1>landing_page<br></h1>
+    <h1>landing_page<br></h1>
+    <h1>landing_page<br></h1>
+
+    <!--   ここからはad_code受け渡しHTMLタグ  -->
+    <script type="text/javascript">
+      window.ukAsyncInit = function() {
+        UK.init({
+          cart_domain: "https://tamago-next-test-gold.temonalab.com",
+          type: "shop"
+        });
+      };
+
+      (function(d, s, id) {
+         var js, hjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;};
+         js = d.createElement(s);
+         js.async = true;
+         js.id = id;
+         js.src = "https://tamago-next-test-gold.temonalab.com/ukokkei-sdk.js";
+         hjs.parentNode.insertBefore(js, hjs);
+       }(document, "script", "ukokkei-sdk"));
+    </script>
+
+    <!--   ここまではad_code受け渡しHTMLタグ  -->
+
+    <!--   ここからは追加してほしいコード  -->
+    <script language="javascript">
+        var arg = new Object;
+        var pair=location.search.substring(1).split('&');
+        for(i=0;pair[i];i++) {
+            var kv = pair[i].split('=');
+            arg[kv[0]] = kv[1];
+        }
+        document.write("<img src='https://tamago-next-test-gold.temonalab.com/shop/set_adcode?ad_code="+arg["ad_code"]+"' width='1' height='1' >");
+    </script>
+    <!--   ここまでは追加してほしいコード  -->
+  </body>
+</html>

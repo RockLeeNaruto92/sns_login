@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>No title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body style="background-color:#f3f3f4">
+    <div id="ukokkei-landing-page-container" style="width: 70%; margin-left: 15%;"></div>
+
+
+    <script type="text/javascript">
+      window.ukAsyncInit = function() {
+        UK.init({
+          cart_domain: "http://localhost:3000",
+          lp_form_code: "landing_page_code6",
+          type: "uk_landing_page"
+        });
+      };
+
+      (function(d, s, id) {
+         var js, hjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;};
+         js = d.createElement(s);
+         js.async = true;
+         js.id = id;
+         js.src = "http://localhost:3000/ukokkei-sdk.js";
+         hjs.parentNode.insertBefore(js, hjs);
+       }(document, "script", "ukokkei-sdk"));
+    </script>
+  </body>
+</html>
