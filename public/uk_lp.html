@@ -3,30 +3,87 @@
   <head>
     <meta charset="utf-8">
     <title>No title</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  </head>
-  <body style="background-color:#f3f3f4">
-    <div id="ukokkei-landing-page-container" style="width: 70%; margin-left: 15%;"></div>
 
+    <script src="/uk_data.js"></script>
+    <script src="/uk_input_util.js"></script>
 
     <script type="text/javascript">
-      window.ukAsyncInit = function() {
-        UK.init({
-          cart_domain: "http://localhost:3000",
-          lp_form_code: "landing_page_code6",
-          type: "uk_landing_page"
-        });
+    if (!('remove' in Element.prototype)) {
+      Element.prototype.remove = function() {
+          if (this.parentNode) {
+              this.parentNode.removeChild(this);
+          }
       };
-
-      (function(d, s, id) {
-         var js, hjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;};
-         js = d.createElement(s);
-         js.async = true;
-         js.id = id;
-         js.src = "http://localhost:3000/ukokkei-sdk.js";
-         hjs.parentNode.insertBefore(js, hjs);
-       }(document, "script", "ukokkei-sdk"));
+    }
     </script>
+
+  </head>
+  <body style="background-color:#f3f3f4">
+    <h1>For testing payment_method and shipping_method</h1>
+
+    <div>
+      <h3>Select shipping_method</h3>
+      <select id="shipping_method_shop_id">
+        <option value='5'>飛脚メール便</option>
+        <option value='1'>飛脚宅配便</option>
+        <option value='3'>飛脚クール便</option>
+        <option value='4'>飛脚クール便(冷凍)</option>
+        <option value='12'>ゆうパック</option>
+        <option value='13'>チルドゆうパック</option>
+        <option value='14'>チルドゆうパック(冷凍)</option>
+        <option value='18'>ゆうパケット</option>
+        <option value='16'>レターパック</option>
+        <option value='17'>スマートレター</option>
+        <option value='7'>宅急便コンパクト</option>
+        <option value='9'>クール宅急便</option>
+        <option value='10'>クール宅急便(冷凍)</option>
+        <option value='15'>ゆうメール</option>
+        <option value='6'>宅急便</option>
+        <option value='39'>テスト</option>
+      </select>
+
+      <h3>Select payment_method</h3>
+      <select id="payment_method_shop_id">
+        <option value='16'>低迷名</option>
+        <option value='15'>銀行振込み</option>
+        <option value='4'>NP後払い</option>
+        <option value='33'>テウsと</option>
+        <option value='11'>代引き</option>
+        <option value='13'>Amazon Pay</option>
+        <option value='17'>デザイナ</option>
+        <option value='2'>クレジットカード(GMO)</option>
+        <option value='1'>クレジットカード(ZEUS)</option>
+      </select>
+
+      <button  onclick="return onSubmit();">Test</button>
+    </div>
+
+    <h1>For testing other</h1>
+    <div>
+      <h3>Select test case related with product</h3>
+      <select id="product_test_case">
+        <option value='lp_product_variant_on'>Product Variant On → 購入できる</option>
+        <option value='lp_product_variant_off'>Product Variant Off → 購入できない</option>
+        <option value='lp_product_offline'>Product 非公開 → 購入できない</option>
+        <option value='lp_product_online'>Product 管理画面 → 購入できない</option>
+        <option value='lp_product_both'>Product 両方 → 購入できる</option>
+        <option value='lp_product_nowhere'>Product ショップ画面 → 購入できない</option>
+        <option value='lp_product_age_limit:invalid'>Product Age Limit - with invalid birthYear → 購入できない</option>
+        <option value='lp_product_age_limit:valid'>Product Age Limit - with valid birthYear → 購入できる</option>
+        <option value='lp_product_max_quantity_for_user:invalid'>Product Max Quantity for user - with invalid quantity → 購入できない</option>
+        <option value='lp_product_max_quantity_for_user:valid'>Product Max Quantity for user - with valid quantity → 購入できる</option>
+        <option value='lp_product_min_quantity_per_purchase:invalid'>Product min_quantity_per_purchase - with invalid quantity → 購入できない</option>
+        <option value='lp_product_min_quantity_per_purchase:valid'>Product min_quantity_per_purchase - with valid quantity → 購入できない</option>
+      </select>
+
+      <button  onclick="return onProductTestCaseSubmit();">Test</button>
+    </div>
+
+
+    <h1>From here is the landing_page form</h1>
+    <div id="ukokkei-landing-page-container"></div>
+
+    <div id="ukokkei-script">
+    </div>
   </body>
 </html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>No title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://static-fe.payments-amazon.com/OffAmazonPayments/jp/sandbox/lpa/js/Widgets.js"></script>
+  </head>
+  <body style="background-color:#f3f3f4">
+    <div id="ukokkei-landing-page-container" style="width: 70%; margin-left: 15%;"></div>
+
+
+    <script type="text/javascript">
+      // window.ukAsyncInit = function() {
+      //   UK.init({
+      //     cart_domain: "http://localhost:3000",
+      //     site_domain: "http://localhost:3000",
+      //     ad_code: "ok"
+      //   });
+      // };
+      //
+      // (function(d, s, id) {
+      //    var js, hjs = d.getElementsByTagName(s)[0];
+      //    if (d.getElementById(id)) {return;};
+      //    js = d.createElement(s);
+      //    js.async = true;
+      //    js.id = id;
+      //    js.src = "http://localhost:3000/ukokkei-sdk.js";
+      //    hjs.parentNode.insertBefore(js, hjs);
+      //  }(document, "script", "ukokkei-sdk"));
+    </script>
+
+    <div id="addressBookWidgetDiv">
+    </div>
+    <script type="text/javascript">
+      new OffAmazonPayments.Widgets.AddressBook({
+        sellerId: 'A3QCQLYZKBHFRS',
+        onOrderReferenceCreate: function(orderReference) {
+          orderReference.getAmazonOrderReferenceId();
+        },
+        onAddressSelect: function(orderReference) {
+        },
+        design: {
+          designMode: 'responsive'
+        },
+        theme: 'light',
+        onReady: function(orderReference) {
+        },
+        onError: function(error) {
+        }
+      }).bind("addressBookWidgetDiv");
+    </script>
+  </body>
+</html>
+
+- Loginしないuserは 「お届け先を個別に設定」ボタンをクリックした →　エラー

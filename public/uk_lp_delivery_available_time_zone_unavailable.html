@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>No title</title>
+
+    <script src="/uk_data.js"></script>
+    <script src="/uk_input_util.js"></script>
+
+  </head>
+  <body style="background-color:#f3f3f4">
+    <div id="ukokkei-landing-page-container"></div>
+
+    <script type="text/javascript">
+      window.ukLpAsyncInit = function() {
+        UK.initLp({
+          cart_domain: "http://c29d689c.ngrok.io",
+          lp_form_code: "Sample"
+        });
+      };
+
+      (function(d, s, id) {
+         var js, hjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;};
+         js = d.createElement(s);
+         js.async = true;
+         js.id = id;
+         js.src = "http://c29d689c.ngrok.io/ukokkei-sdk.js";
+         hjs.parentNode.insertBefore(js, hjs);
+       }(document, "script", "ukokkei-sdk"));
+    </script>
+  </body>
+</html>
